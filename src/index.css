@@ -1,0 +1,272 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-color: #222222; /* Pastel color */
+  --secondary-color: #ffffff;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.cart-btn {
+  font-size: 13px;
+  font-weight: 500;
+  padding: 9px 30px;
+  background-color: var(--primary-color);
+  color: #fff;
+  display: inline-block;
+  /* border: 1px solid transparent; */
+  text-transform: uppercase;
+  text-align: center;
+  border-radius: 20px;
+}
+.cart-btn:hover {
+  border: 1px solid #e5e5e5;
+  color: var(--primary-color);
+  background-color: #ffffff;
+}
+
+.header-container {
+  max-width: 100% !important;
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
+}
+
+
+  
+  .input-counter {
+    max-width: 140px;
+    min-width: 100px;
+    text-align: center;
+    position: relative;
+    max-height: 50px;
+    min-height: 50px;
+    width: 100%;
+  }
+  
+  .input-counter button {
+    place-content: center;
+    display: grid;
+    background-color: var(--primary-color);
+    border-radius: 20%;
+    top: 0;
+    width: 40px;
+    height: 40px;
+    font-size: 15px;
+    cursor: pointer;
+    line-height: 50px;
+    position: absolute;
+    padding: 0px 4px;
+    color: var(--secondary-color);
+
+  }
+  
+  .input-counter button:hover {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+  }
+  
+  .input-counter button i {
+    color: white;
+  }
+  .input-counter button i:hover {
+    color: var(--primary-color);
+  }
+  
+  .input-counter button.minus-button {
+    left: 0;
+  }
+  
+  .input-counter button.plus-button {
+    right: 0;
+  }
+  
+  .input-counter input {
+    outline: 0;
+    width: 100%;
+    height: 47px;
+    display: block;
+    text-align: center;
+    border: transparent;
+    background: transparent;
+  }
+  
+/* Media query to adjust button size on smaller screens (mobile devices) */
+@media (max-width: 768px) {
+  .input-counter {
+    max-width: 100px;
+    min-width: 80px;
+    max-height: 40px;
+    min-height: 40px;
+  }
+
+  .input-counter button {
+    width: 30px;
+    height: 30px;
+    font-size: 12px;
+    line-height: 40px;
+  }
+
+  .input-counter input {
+    height: 37px;
+  }
+}
+
+.image-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 400px;
+  height: 400px;
+  position: relative;
+  border: 1px solid #ddd;
+}
+
+.small-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.enlarged-image {
+  border: 1px solid #ddd;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Vertical List */
+.menu-vertical {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  width: 260px;
+}
+
+.menu-vertical li {
+  position: relative;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+.menu-vertical li:hover {
+  background-color: #f5f5f5;
+}
+
+.menu-vertical li.has-children > a:after {
+  float: right;
+  font-size: 12px;
+  margin-top: 2px;
+}
+
+/* Submenu */
+.menu-vertical .submenu {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  background: #f9f9f9;
+  border-left: 1px solid #eee;
+  min-width: 230px;
+  list-style: none;
+  padding: 10px 0;
+  z-index: 1002;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+.menu-vertical .submenu li {
+  padding: 8px 20px;
+  white-space: nowrap;
+}
+
+.menu-vertical .submenu li:hover {
+  background-color: #eaeaea;
+}
+
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+}
+
+
+@keyframes pulse-rotate {
+  0% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2) rotate(180deg);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1) rotate(360deg);
+    opacity: 1;
+  }
+}
+
+.animate-pulse-rotate {
+  animation: pulse-rotate 2s infinite ease-in-out;
+}
+
+.animate-pulse-rotate-once {
+  animation: pulse-rotate 3s ease-in-out forwards; /* Runs once for 3 seconds */
+}
+
+.paystackButton {
+  background: linear-gradient(90deg, #2563eb, #1d4ed8); /* Blue gradient */
+  color: #fff;
+  border: none;
+  padding: 14px 28px;
+  font-size: 17px;
+  font-weight: 700;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+  width: 100%;
+  max-width: 350px;
+  margin-top: 20px;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25); /* Blue shadow */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.paystackButton:hover {
+  background: linear-gradient(90deg, #1d4ed8, #1e40af);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.35);
+}
+
+.paystackButton:active {
+  transform: translateY(1px);
+  box-shadow: 0 3px 8px rgba(37, 99, 235, 0.25);
+}
+
+.paystackButton:disabled {
+  background: #cccccc;
+  color: #666;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+
+.my-swal-popup {
+  z-index: 9999999 !important;
+}
+
+.swal2-container {
+  z-index: 99999 !important;
+}
