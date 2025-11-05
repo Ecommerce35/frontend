@@ -4,7 +4,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import Avatar from '@mui/material/Avatar';
-import Grid2 from '@mui/material/Grid2';
+import Grid from '@mui/material/Grid';
 import { Link } from 'react-router-dom';
 import Header from '../partials/Header';
 import Footer from '../partials/Footer';
@@ -47,9 +47,9 @@ const UserDashboard = () => {
         <Typography fontWeight='bold' m={3} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center'}} variant="h5" gutterBottom>
           Account
         </Typography>
-        <Grid2 sx={{gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', display: 'grid',gap: '1rem',padding: '1rem',}} container spacing={2}>
+        <Grid sx={{gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', display: 'grid',gap: '1rem',padding: '1rem',}} container spacing={2}>
           {/* Profile Management */}
-          <Grid2 item xs={12} sm={6} md={4} lg={3}>
+          <Grid item xs={12} sm={6} md={4} lg={3}>
             <Card sx={cardStyle}>
               <Link to="/user/dashboard/profile" color="textPrimary" underline="none">
                 <CardContent>
@@ -65,10 +65,10 @@ const UserDashboard = () => {
                 </CardContent>
               </Link>
             </Card>
-          </Grid2>
+          </Grid>
 
           {/* Address Management */}
-          <Grid2 item xs={12} sm={6} md={4} lg={3} >
+          <Grid item xs={12} sm={6} md={4} lg={3} >
             <Card sx={cardStyle}>
               <Link to={"/user/dashboard/address"} color="textPrimary" underline="none">
                 <CardContent>
@@ -82,10 +82,10 @@ const UserDashboard = () => {
                 </CardContent>
               </Link>
             </Card>
-          </Grid2>
+          </Grid>
 
           {/* Order History */}
-          <Grid2 item xs={12} sm={6} md={4}>
+          <Grid item xs={12} sm={6} md={4}>
             <Card sx={cardStyle}>
               <Link to={"/user/dashboard/orders"} color="textPrimary" underline="none">
                 <CardContent>
@@ -101,10 +101,10 @@ const UserDashboard = () => {
                 </CardContent>
               </Link>
             </Card>
-          </Grid2>
+          </Grid>
 
           {/* Reviews */}
-          <Grid2 item xs={12} sm={6} md={4}>
+          <Grid item xs={12} sm={6} md={4}>
             <Card sx={cardStyle}>
               <Link to={"/user/dashboard/reviews"} color="textPrimary" underline="none">
                 <CardContent>
@@ -120,10 +120,10 @@ const UserDashboard = () => {
                 </CardContent>
               </Link>
             </Card>
-          </Grid2>
+          </Grid>
 
           {/* Recently Viewed */}
-          <Grid2 item xs={12} sm={6} md={4}>
+          <Grid item xs={12} sm={6} md={4}>
             <Card sx={cardStyle}>
               <Link to={"/user/dashboard/recently-viewed-products"} color="textPrimary" underline="none">
                 <CardContent>
@@ -139,10 +139,10 @@ const UserDashboard = () => {
                 </CardContent>
               </Link>
             </Card>
-          </Grid2>
+          </Grid>
 
           {/* Account Security */}
-          <Grid2 item xs={12} sm={6} md={4}>
+          <Grid item xs={12} sm={6} md={4}>
             <Card sx={cardStyle}>
               <Link to={"/user/dashboard/password-management"} color="textPrimary" underline="none">
                 <CardContent>
@@ -158,10 +158,10 @@ const UserDashboard = () => {
                 </CardContent>
               </Link>
             </Card>
-          </Grid2>
+          </Grid>
 
           {/* Saved Products / Wishlist */}
-          <Grid2 item xs={12} sm={6} md={4}>
+          <Grid item xs={12} sm={6} md={4}>
             <Card sx={cardStyle}>
               <Link href="/wishlist" color="textPrimary" underline="none">
                 <CardContent>
@@ -177,10 +177,10 @@ const UserDashboard = () => {
                 </CardContent>
               </Link>
             </Card>
-          </Grid2>
+          </Grid>
 
           {/* Logout */}
-          <Grid2 item xs={12} sm={6} md={4}>
+          <Grid item xs={12} sm={6} md={4}>
             <Card sx={cardStyle}>
               <Link to={"/user/dashboard/sign-out"} color="textPrimary" underline="none">
                 <CardContent>
@@ -196,8 +196,8 @@ const UserDashboard = () => {
                 </CardContent>
               </Link>
             </Card>
-          </Grid2>
-        </Grid2>
+          </Grid>
+        </Grid>
       </Box>
     </div>
     <Footer />

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
 import api from "../../api/api";
-import { SERVER_URL } from '../../api/constants';
 import Skeleton from '@mui/material/Skeleton';
 import Stack from '@mui/material/Stack';
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -83,7 +82,7 @@ const CategoryBlocks = () => {
                         <Link to={`/category/${c.slug}`} className="cat-block">
                             <figure>
                             <span>
-                                <img src={`${SERVER_URL}${c.image}`} alt={`${c.title} category`} />
+                                <img src={`${c.image}`} alt={`${c.title} category`} />
                             </span>
                             </figure>
                             <h3 className="cat-block-title">{c.title}</h3>

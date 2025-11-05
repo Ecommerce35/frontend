@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { TextField, Button, Typography, Container, Box, IconButton, InputAdornment } from '@mui/material';
-import Grid from '@mui/material/Grid2';
+import Grid from '@mui/material/Grid';
 import api from '../../api/api';
 import Swal from 'sweetalert2'
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';

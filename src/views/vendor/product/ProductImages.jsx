@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Box, Button, TextField, IconButton, Typography } from '@mui/material';
-import Grid from '@mui/material/Grid2'
+import Grid from '@mui/material/Grid';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { SERVER_URL } from '../../../api/constants';
 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Typography, Select, MenuItem, IconButton, Checkbox, Button, FormControl, InputLabel } from '@mui/material';
-import Grid from '@mui/material/Grid2'
+import Grid from '@mui/material/Grid';
 
 const DeliveryOptions = ({ fieldOptions, onOptionsChange, deliveryOptions }) => {
 

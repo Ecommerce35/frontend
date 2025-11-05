@@ -21,7 +21,7 @@ import Forward30Icon from '@mui/icons-material/Forward30';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import BasicModal from '../partials/Modal';
 import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid2';
+import Grid from '@mui/material/Grid';
 
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
@@ -60,20 +60,21 @@ const NoneProduct = ({handleFollowToggle, isFollowing, p, p_image, product}) => 
     const [variantId, setVariantId] = useState(null); // You can set initial variant if applicable
     const [productId, setProductId] = useState(p.id);
     const [isInCart, setIsInCart] = useState(false);
-    const isAuthenticated = useAuthStore.getState().isLoggedIn();
+    const { isLoggedIn, user } = useAuthStore();
+    
     const [loading, setLoading] = useState(false); 
   
     // Check cart on mount
     useEffect(() => {
       checkCart();
-    }, [productId, variantId, isAuthenticated]);
+    }, [productId, variantId, isLoggedIn]);
   
     const checkCart = async () =>  {
       setLoading(true);
       const localCart = JSON.parse(localStorage.getItem('cart')) || [];
       const itemInCart = localCart.find(item => item.productId === productId && item.variantId === variantId);
   
-      if (isAuthenticated) {
+      if (isLoggedIn) {
         // Check server cart for the product if the user is authenticated
         try {
           const response = await api.get(`/api/cart/check/`, {
@@ -102,7 +103,7 @@ const NoneProduct = ({handleFollowToggle, isFollowing, p, p_image, product}) => 
   
     const handleAddToCart = () => {
       setLoading(true);
-      if (isAuthenticated) {
+      if (isLoggedIn) {
         addToCartOnServer(1); // Default 1 quantity when first added
       } else {
         addToLocalStorage(1);
@@ -156,7 +157,7 @@ const NoneProduct = ({handleFollowToggle, isFollowing, p, p_image, product}) => 
 
       setLoading(true);
   
-      if (isAuthenticated) {
+      if (isLoggedIn) {
         addToCartOnServer(1); // Add one more unit to server-side cart
       } else {
         addToLocalStorage(1); // Add one more unit to local storage cart
@@ -169,7 +170,7 @@ const NoneProduct = ({handleFollowToggle, isFollowing, p, p_image, product}) => 
       if (quantity > 1) {
         setQuantity(prev => prev - 1);
   
-        if (isAuthenticated) {
+        if (isLoggedIn) {
           addToCartOnServer(-1); // Remove one unit from server-side cart
         } else {
           addToLocalStorage(-1); // Remove one unit from local storage cart
@@ -182,7 +183,7 @@ const NoneProduct = ({handleFollowToggle, isFollowing, p, p_image, product}) => 
   
     const handleRemoveFromCart = () => {
       setLoading(true);
-      if (isAuthenticated) {
+      if (isLoggedIn) {
         removeFromServer();
       } else {
         removeFromLocalStorage();
@@ -432,7 +433,7 @@ const NoneProduct = ({handleFollowToggle, isFollowing, p, p_image, product}) => 
                 <div className='flex items-center'>
                 <RoomIcon color='primary' fontSize='medium'/>
                   <span className="block text-md text-gray-700 hover:underline">
-                    {isAuthenticated ? (
+                    {isLoggedIn ? (
                       <Box sx={{ cursor: 'pointer' }} onClick={handleOpen} >{address?.address ? (truncateText(address.address, 34)):(<>Add Address</>)}</Box> 
                     ):(
                       <Box sx={{ cursor: 'pointer' }} onClick={handleOpen} >Login to add address</Box> 

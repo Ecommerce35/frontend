@@ -3,8 +3,7 @@ import { useNavigate, Link, useLocation } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import api from '../../api/api';
 import { Box, Button, TextField, Typography, Divider, CircularProgress, Container, Paper } from '@mui/material';
-import Grid from '@mui/material/Grid2';
-import GoogleIcon from '@mui/icons-material/Google';
+import Grid from '@mui/material/Grid';
 
 const LoginForm = () => {
   const [emailOrPhone, setEmailOrPhone] = useState('');

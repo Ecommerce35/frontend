@@ -14,7 +14,7 @@ import {
 } from "@mui/material";
 import api from '../../../api/api'
 
-import Grid from '@mui/material/Grid2'
+import Grid from "@mui/material/Grid";
 import BusinessInformation from "./parts/BusinessInfo";
 import PaymentMethodForm from "./parts/PaymentMethodForm";
 import BusinessInformationForm from "./parts/BusinessInformationForm";

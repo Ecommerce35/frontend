@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import api from '../../api/api';
-import Grid2 from '@mui/material/Grid2';
+import Grid from '@mui/material/Grid';
 import Switch from '@mui/material/Switch';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -211,9 +211,9 @@ const AddressPage = () => {
                  <CircularProgress />
                 </Box>
             ) : (
-            <Grid2 sx={{gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', display: 'grid',gap: '1rem',padding: '1rem',}} container spacing={2}>
+            <Grid sx={{gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', display: 'grid',gap: '1rem',padding: '1rem',}} container spacing={2}>
                 {/* Add New Address Card */}
-                <Grid2 item xs={12} sm={6} md={4}>
+                <Grid item xs={12} sm={6} md={4}>
                     <Card sx={{ border: 'dotted' }}>
                         <CardContent>
                         {addressesList.length >= 4 ? (
@@ -239,7 +239,7 @@ const AddressPage = () => {
                         )}
                         </CardContent>
                     </Card>
-                </Grid2>
+                </Grid>
 
                 <AddressModal
                     open={open}
@@ -258,7 +258,7 @@ const AddressPage = () => {
 
                 {/* Loop through the address list */}
                 {addressesList.map((address) => (
-                <Grid2 item xs={12} sm={6} md={4} key={address.id}>
+                <Grid item xs={12} sm={6} md={4} key={address.id}>
                     <Card>
                         <CardContent>
                             <Box display="flex" justifyContent="space-between" alignItems="center">
@@ -297,9 +297,9 @@ const AddressPage = () => {
                             </Box>
                         </CardContent>
                     </Card>
-                </Grid2>
+                </Grid>
                 ))}
-            </Grid2>
+            </Grid>
             )}
         </Box>
 

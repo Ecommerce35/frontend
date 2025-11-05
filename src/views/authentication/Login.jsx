@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import { Link } from 'react-router-dom';
-import { Box, Button, TextField, Typography, Divider } from '@mui/material';
+import { Button, Divider } from '@mui/material';
 import GoogleIcon from '@mui/icons-material/Google';
 
 const Login = () => {

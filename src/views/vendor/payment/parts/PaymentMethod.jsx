@@ -7,7 +7,7 @@ import {
   CircularProgress,
   Button,
 } from "@mui/material";
-import Grid from '@mui/material/Grid2';
+import Grid from '@mui/material/Grid';
 import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 import api from '../../../../api/api';
 import Swal from 'sweetalert2';

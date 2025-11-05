@@ -18,7 +18,7 @@ import { SERVER_URL } from '../../api/constants';
 const ProductDetailHeader = () => {
     const { cartCount } = useCart(); 
     const navigate = useNavigate();
-    const [isLoggedIn, user] = useAuthStore((state) => [state.isLoggedIn, state.user]);
+    const { isLoggedIn, user } = useAuthStore();
     const { userData, loading, error } = useUserData();
     const [totalQuantity, setTotalQuantity] = useState(0);
 
@@ -103,7 +103,7 @@ const ProductDetailHeader = () => {
                                     </div>
                                 </li>
                                 <li>
-                                    {isLoggedIn() ? (
+                                    {isLoggedIn ? (
                                         <>
                                             <a className="cursor-pointer" onClick={handleLogout} >Logout</a>
                                         </>

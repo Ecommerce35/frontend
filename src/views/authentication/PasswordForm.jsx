@@ -22,7 +22,7 @@ import {
   InputAdornment,
 } from '@mui/material';
 
-import Grid from '@mui/material/Grid2';
+import Grid from '@mui/material/Grid';
 
 const PasswordForm = () => {
   const { refreshCart } = useCart();

@@ -13,7 +13,7 @@ import SizeColorProduct from './SizeColorProduct';
 import Avatar from '@mui/material/Avatar';
 import AvatarGroup from '@mui/material/AvatarGroup';
 import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid2';
+import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
@@ -91,7 +91,8 @@ const StyledTypography = styled(Typography)({
 const ProductDetail = () => {
   const location = useLocation();
   const { sku, slug } = useParams();
-  const isAuthenticated = useAuthStore.getState().isLoggedIn();
+  const { isLoggedIn, user } = useAuthStore();
+  
   const [product, setProduct] = useState(null);
   const [variantId, setVariantId] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -123,7 +124,7 @@ const ProductDetail = () => {
   };
   
   const handleFollowToggle = async () => {
-    if (isAuthenticated) {
+    if (isLoggedIn) {
         try {
             const response = await api.post(`/api/vendor/${product.product.vendor.slug}/`);
             const data = response.data;
@@ -396,8 +397,8 @@ const ProductDetail = () => {
                                           {feedback}
                                         </Alert>
                                       )}
-                                        {!isAuthenticated || reviewSubmitted ? (
-                                          <>{!isAuthenticated ? (<Alert action={
+                                        {!isLoggedIn || reviewSubmitted ? (
+                                          <>{!isLoggedIn ? (<Alert action={
                                             <Button component={Link} to={"/auth/email/"} color="inherit" size="small"> Signin! </Button>
                                           } severity="info">Please log in to submit a review.</Alert>) : (<Alert severity="info">You have already submitted a review.</Alert>)}</>
                                         ) : (

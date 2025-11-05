@@ -4,7 +4,6 @@ import { Route, Routes, BrowserRouter } from "react-router-dom";
 import PrivateRoute from './api/PrivateRoute.jsx';
 import { CartProvider } from './utils/CartContext.jsx';
 
-
 import Register from './views/authentication/Register.jsx';
 import Login from './views/authentication/Login.jsx';
 import Logout from './views/authentication/Logout.jsx';
@@ -17,7 +16,6 @@ import OtpVerification from './views/authentication/otpVerification.jsx';
 import MainWrapper from "./layouts/MainWrapper";
 import ProductDetail from './views/core/ProductDetail.jsx';
 import Cart from './views/core/CartPage.jsx';
-
 
 import AddressPage from './views/dashboard/Address.jsx';
 import UserDashboard from './views/dashboard/Dashboard.jsx';
@@ -128,7 +126,8 @@ const App = () => {
                   {/* Add a fallback route */}
 
                   {/* Add a fallback route */}
-                  <Route path="*" render={() => <h1>404 - Page not found</h1>} />
+                  {/* <Route path="*" render={() => <h1>404 - Page not found</h1>} /> */}
+                  <Route path="*" element={<h1>404 - Page not found</h1>} />
 
                   {/* <Route path="/" element={<Index />} /> */}
                   {/* Private Routes */}

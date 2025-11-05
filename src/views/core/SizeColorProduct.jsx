@@ -23,7 +23,7 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import PinterestIcon from '@mui/icons-material/Pinterest';
 import ZoomInIcon from '@mui/icons-material/ZoomIn';
 import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid2';
+import Grid from '@mui/material/Grid';
 import Chip from '@mui/material/Chip';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
@@ -54,7 +54,8 @@ const SizeColorProduct = ({handleFollowToggle, isFollowing, sizes, colors, varia
   const [variantId, setVariantId] = useState(variant.id);
   const [productId, setProductId] = useState(p.id);
   const [isInCart, setIsInCart] = useState(false);
-  const isAuthenticated = useAuthStore.getState().isLoggedIn();
+  const { isLoggedIn, user } = useAuthStore();
+  
   const [loading, setLoading] = useState(true);
   const [activeId, setActiveId] = useState(null);
 
@@ -77,7 +78,7 @@ const SizeColorProduct = ({handleFollowToggle, isFollowing, sizes, colors, varia
   // Check cart on mount
   useEffect(() => {
     checkCart();
-  }, [productId, variantId, isAuthenticated]);
+  }, [productId, variantId, isLoggedIn]);
 
   const checkCart = async () => {
     try {
@@ -90,7 +91,7 @@ const SizeColorProduct = ({handleFollowToggle, isFollowing, sizes, colors, varia
       );
 
       // If the user is authenticated, check the server cart
-      if (isAuthenticated) {
+      if (isLoggedIn) {
         const serverCartResponse = await checkServerCart(productId, variantId);
         await handleServerCartResponse(serverCartResponse);
       } 
@@ -165,7 +166,7 @@ const SizeColorProduct = ({handleFollowToggle, isFollowing, sizes, colors, varia
 
   const handleAddToCart = async () => {
     setLoading(true);
-    if (isAuthenticated) {
+    if (isLoggedIn) {
       await addToCartOnServer(1); // Default 1 quantity when first added
     } else {
       await addToLocalStorage(1);
@@ -212,7 +213,7 @@ const SizeColorProduct = ({handleFollowToggle, isFollowing, sizes, colors, varia
   const handleIncrease = async () => {
     setQuantity(prev => prev + 1);
     setLoading(true);
-    if (isAuthenticated) {
+    if (isLoggedIn) {
       await addToCartOnServer(1);
     } else {
       await addToLocalStorage(1);
@@ -224,7 +225,7 @@ const SizeColorProduct = ({handleFollowToggle, isFollowing, sizes, colors, varia
   const handleDecrease = async () => {
     if (quantity > 1) {
       setQuantity(prev => prev - 1);
-      if (isAuthenticated) {
+      if (isLoggedIn) {
         await addToCartOnServer(-1);
       } else {
         await addToLocalStorage(-1);
@@ -236,7 +237,7 @@ const SizeColorProduct = ({handleFollowToggle, isFollowing, sizes, colors, varia
 
   const handleRemoveFromCart = async () => {
     setLoading(true);
-    if (isAuthenticated) {
+    if (isLoggedIn) {
       await removeFromServer();
     } else {
       await removeFromLocalStorage();
@@ -549,7 +550,7 @@ const handleCloseChart = () => {
                 <div className='flex items-center'>
                 <RoomIcon fontSize='medium'/>
                   <Typography className="hover:underline">
-                    {isAuthenticated ? (
+                    {isLoggedIn ? (
                       <Box sx={{ cursor: 'pointer' }} onClick={handleOpen} >{address ? (truncateText(address.address, 34)):(<>Add Address</>)}</Box> 
                     ):(
                       <Box sx={{ cursor: 'pointer' }} onClick={handleOpen}>Login to add address</Box> 

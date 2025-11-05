@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Typography, TextField } from '@mui/material';
-import Grid from '@mui/material/Grid2';
+import Grid from '@mui/material/Grid';
 import Swal from 'sweetalert2';
 import { Link, useNavigate } from 'react-router-dom';
 import MaskEmail from './MaskEmail';

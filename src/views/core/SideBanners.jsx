@@ -34,10 +34,10 @@ const SideBanners = () => {
         <Skeleton sx={{ borderRadius: '10px' }} animation="wave" variant="rectangular" width="100%" height={100} />
       </Stack>
     ) : (
-      banners.map((banner, index) => (
-        <div  key={index} className="banner mb-lg-1 mb-xl-2">
+      banners.map((banner, i) => (
+        <div  key={i} className="banner mb-lg-1 mb-xl-2">
           <a href={banner.link || '#'}>
-            <img src={`${SERVER_URL}${banner.image}`} alt="Banner" />
+            <img src={`${banner.image}`} alt="Banner" />
           </a>
           <div className="banner-content">
             <h4 className="banner-subtitle d-lg-none d-xl-block">

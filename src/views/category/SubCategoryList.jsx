@@ -81,7 +81,7 @@ const SubCategoryList = () => {
                 {/* Page Header */}
                 <div
                     className="page-header text-center"
-                    style={{ backgroundImage: `url(${BASE_URL}/static/assetss/images/page-header-bg.jpg)` }}
+                    style={{ backgroundImage: `url(/page-header-bg.jpg)` }}
                 >
                     <div className="container">
                         <h1 className="page-title">
@@ -103,7 +103,7 @@ const SubCategoryList = () => {
                                     <span>
                                         <img
                                         style={{ opacity: 1 }}
-                                        src={`${BASE_URL}${c.image}`}
+                                        src={`${c.image}`}
                                         alt="Category"
                                         />
                                     </span>

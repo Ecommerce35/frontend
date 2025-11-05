@@ -214,7 +214,7 @@ useEffect(() => {
         <main className="container">
             <div
                 className="page-header text-center"
-                style={{ backgroundImage: `url(${SERVER_URL}/static/assetss/images/page-header-bg.jpg)` }}
+                style={{ backgroundImage: `url(/page-header-bg.jpg)` }}
             >
                 <div className="container">
                   <h1 className="page-title">
@@ -265,8 +265,8 @@ useEffect(() => {
                               <div key={index} className="col-4 col- col-6 col-xxl-2 col-xl-2 col-sm-4 col-xs-6 col-lg-2 col-md-3 col-md-4 px-1">
                                   <div className="product">
                                       <figure className="product-media">
-                                          <Link to={`/${p.product.slug}/${p.product.id}/${p.product.sub_category.slug}/`}>
-                                              <img src={`${SERVER_URL}${p.product.image}`} alt="Product image" className="product-image" />
+                                          <Link to={`/${p.product.sku}/${p.product.slug}/`}>
+                                              <img src={`${p.product.image}`} alt="Product image" className="product-image" />
                                           </Link>
 
                                           {/* End .product-action */}
@@ -282,7 +282,7 @@ useEffect(() => {
                                               {p.colors.map((color, colorIndex) => (
                                                   <Link
                                                       key={colorIndex}
-                                                      to={`/${p.product.slug}/${p.product.id}/${p.product.sub_category.slug}/?variantid=${color.id}`}
+                                                      to={`/${p.product.sku}/${p.product.slug}/`}
                                                       title={color.color__name}
                                                       style={{ background: color.color__code }}
                                                   >
@@ -291,12 +291,12 @@ useEffect(() => {
                                               ))}
                                           </div>
                                           <h3 className="product-title">
-                                              <Link to={`/${p.product.slug}/${p.product.id}/${p.product.sub_category.slug}/`}>{truncateText(p.product.title, 30)}</Link>
+                                              <Link to={`/${p.product.sku}/${p.product.slug}/`}>{truncateText(p.product.title, 30)}</Link>
                                           </h3>
                                           {/* End .product-title */}
                                           <div className="product-price">
-                                              <span data-base-price={p.product.price.toFixed(2)} className="new-price">GHS{(p.product.price * 1).toFixed(2)}</span>
-                                              <span data-base-price={p.product.old_price.toFixed(2)} className="old-price">Was GHS{(p.product.old_price * 1).toFixed(2)}</span>
+                                              <span className="new-price">GHS{(p.product.price).toFixed(2)}</span>
+                                              <span className="old-price">Was GHS{(p.product.old_price).toFixed(2)}</span>
                                           </div>
                                           {/* End .product-price */}
                                           <div className="ratings-container">

@@ -8,7 +8,8 @@ import CategoryBlocks from "./CategorySlider";
 import ProductCarousel from "../partials/ProductCarousel";
 import { Link } from "react-router-dom";
 import Divider from '@mui/material/Divider';
-import Grid from '@mui/material/Grid2';
+import Grid from '@mui/material/Grid';
+
 import { Card, CardMedia, CardContent, Typography, Skeleton } from '@mui/material';
 import { truncateText } from '../../utils/Function';
 import RecommendedProducts from "../partials/RecommendedProducts";
@@ -85,7 +86,7 @@ const Index = () => {
                     <Grid container spacing={2} >
                         {/* First Row */}
                         {viewedProducts.length > 0 ? (
-                            <Grid sx={{ boxShadow: 'none', border: 'none', }} size={{ xs: 12, md: 4, lg: 4 }}>
+                            <Grid sx={{ boxShadow: 'none', border: 'none', }} size={{ xs: 12, md: 3, lg: 3 }}>
                                 <Card sx={{ boxShadow: 'none', border: 'none',  }}>
                                     <CardContent>
                                         <Typography sx={{ fontWeight: 'bold', mb: 2 }} variant="h5">
@@ -125,7 +126,7 @@ const Index = () => {
                         ): (<></>)}
 
                         {/* Second Row */}
-                        <Grid sx={{ boxShadow: 'none', border: 'none',  }} size={{ xs: 12, md: 4, lg: 4 }}>
+                        <Grid sx={{ boxShadow: 'none', border: 'none',  }} size={{ xs: 12, md: 3, lg: 3 }}>
                             <Card sx={{ boxShadow: 'none', border: 'none',  }}>
                                 <CardContent>
                                 <Typography sx={{fontWeight: 'bold', mb: 2}} variant="h5">{main?.title}</Typography>
@@ -136,7 +137,7 @@ const Index = () => {
                                                 <CardMedia
                                                     component="img"
                                                     height="100"
-                                                    image={`${SERVER_URL}${c.image}`}
+                                                    image={`${c.image}`}
                                                     alt="Makeup"
                                                 />
                                                 <Typography variant="body2" align="center">{c.title}</Typography>
@@ -150,7 +151,7 @@ const Index = () => {
 
                         </Grid>
                         {/* Third Row */}
-                        <Grid sx={{ boxShadow: 'none', border: 'none',  }} size={{ xs: 12, md: 4, lg: 4 }}>
+                        <Grid sx={{ boxShadow: 'none', border: 'none',  }} size={{ xs: 12, md: 3, lg: 3 }}>
                             <Card sx={{ boxShadow: 'none', border: 'none',  }}>
                                 <CardContent>
                                 <Typography sx={{fontWeight: 'bold', mb: 2}} variant="h5">Level up your beauty</Typography>
@@ -206,7 +207,7 @@ const Index = () => {
                         <Grid key={c.id} size={{ xs: 6, md: 3, lg: 3 }}>
                             <div style={{borderRadius: 10, paddingBottom: 0}} className="banner">
                                 <Link to={`/s/${c.slug}/${c.main_category.slug}`}>
-                                    <img style={{borderRadius: 10, opacity: '85%'}} src={`${SERVER_URL}${c.main_image}`} alt="Banner" />
+                                    <img style={{borderRadius: 10, opacity: '85%'}} src={`${c.main_image}`} alt="Banner" />
                                 </Link>
 
                                 <div className="banner-content">

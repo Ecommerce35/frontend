@@ -9,8 +9,7 @@ const CartContext = createContext();
 export const useCart = () => useContext(CartContext);
 
 export const CartProvider = ({ children }) => {
-  // Retrieve authentication status from the auth store
-  const isAuthenticated = useAuthStore.getState().isLoggedIn();
+  const { isLoggedIn, user } = useAuthStore();
   
   // State to manage the cart count globally
   const [progress, setProgress] = useState(false);
@@ -31,7 +30,7 @@ export const CartProvider = ({ children }) => {
 
   // Function to check and set the cart count (based on user auth status)
   const updateCartCount = async () => {
-    if (isAuthenticated) {
+    if (isLoggedIn) {
       try {
         // Fetch cart data from the server if user is authenticated
         const response = await api.get('/api/cart/count/');
@@ -50,7 +49,7 @@ export const CartProvider = ({ children }) => {
   // Function to calculate delivery fee, total amount, and active address
   const calculateOrderSummary = async () => {
     try {
-      if (isAuthenticated) {
+      if (isLoggedIn) {
         // Fetch cart total and delivery fee from the server
         const cartResponse = await api.get('/api/cart/count/'); // Assumes an API endpoint exists for this
         const addressResponse = await api.get('/api/v1/address/addresses/default/'); // Assumes an API to fetch active address
@@ -97,7 +96,7 @@ export const CartProvider = ({ children }) => {
   useEffect(() => {
     updateCartCount();
     calculateOrderSummary();
-  }, [isAuthenticated]); // Update cart count whenever user logs in or logs out
+  }, [isLoggedIn]); // Update cart count whenever user logs in or logs out
 
   // Function to forcefully refresh cart count, e.g., after adding/removing items
   const refreshCart = async () => {

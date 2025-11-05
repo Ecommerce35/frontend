@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Grid2 from '@mui/material/Grid2';
+import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -44,8 +44,8 @@ const AddressForm = ({ addressData = {}, onSubmit, onChange, handleOpen }) => {
   };
 
   return (
-    <Grid2 sx={{ padding: '1rem' }} container spacing={3}>
-      <Grid2 item xs={12}>
+    <Grid sx={{ padding: '1rem' }} container spacing={3}>
+      <Grid item xs={12}>
         <Typography variant="h5" gutterBottom align="center">
           {addressData?.id ? 'Edit Address' : 'Add a New Address'}
         </Typography>
@@ -66,10 +66,10 @@ const AddressForm = ({ addressData = {}, onSubmit, onChange, handleOpen }) => {
             Autofill
           </Button>
         </Box>
-      </Grid2>
+      </Grid>
       <form onSubmit={handleSubmit}>
-        <Grid2 container spacing={3}>
-          <Grid2 item xs={12} md={4}>
+        <Grid container spacing={3}>
+          <Grid item xs={12} md={4}>
             <TextField
               label="Full Name"
               name="full_name"
@@ -78,9 +78,9 @@ const AddressForm = ({ addressData = {}, onSubmit, onChange, handleOpen }) => {
               fullWidth
               required
             />
-          </Grid2>
+          </Grid>
 
-          <Grid2 item xs={12} md={4}>
+          <Grid item xs={12} md={4}>
             <TextField
               label="Mobile"
               name="mobile"
@@ -89,9 +89,9 @@ const AddressForm = ({ addressData = {}, onSubmit, onChange, handleOpen }) => {
               fullWidth
               required
             />
-          </Grid2>
+          </Grid>
 
-          <Grid2 item xs={12} md={4}>
+          <Grid item xs={12} md={4}>
             <TextField
               label="Email"
               name="email"
@@ -100,9 +100,9 @@ const AddressForm = ({ addressData = {}, onSubmit, onChange, handleOpen }) => {
               fullWidth
               required
             />
-          </Grid2>
+          </Grid>
 
-          <Grid2 item xs={12} md={6}>
+          <Grid item xs={12} md={6}>
             <TextField
               label="Address"
               name="address"
@@ -111,9 +111,9 @@ const AddressForm = ({ addressData = {}, onSubmit, onChange, handleOpen }) => {
               fullWidth
               required
             />
-          </Grid2>
+          </Grid>
 
-          <Grid2 item xs={12} sm={6}>
+          <Grid item xs={12} sm={6}>
             <TextField
               label="Country"
               name="country"
@@ -122,9 +122,9 @@ const AddressForm = ({ addressData = {}, onSubmit, onChange, handleOpen }) => {
               fullWidth
               required
             />
-          </Grid2>
+          </Grid>
 
-          <Grid2 item xs={12} sm={6}>
+          <Grid item xs={12} sm={6}>
             <TextField
               label="Region"
               name="region"
@@ -133,9 +133,9 @@ const AddressForm = ({ addressData = {}, onSubmit, onChange, handleOpen }) => {
               fullWidth
               required
             />
-          </Grid2>
+          </Grid>
 
-          <Grid2 item xs={12} sm={6}>
+          <Grid item xs={12} sm={6}>
             <TextField
               label="Town"
               name="town"
@@ -144,9 +144,9 @@ const AddressForm = ({ addressData = {}, onSubmit, onChange, handleOpen }) => {
               fullWidth
               required
             />
-          </Grid2>
+          </Grid>
 
-          <Grid2 item xs={12} sm={6}>
+          <Grid item xs={12} sm={6}>
             <TextField
               label="GPS"
               name="gps_address"
@@ -155,9 +155,9 @@ const AddressForm = ({ addressData = {}, onSubmit, onChange, handleOpen }) => {
               fullWidth
               required
             />
-          </Grid2>
+          </Grid>
 
-          <Grid2 item xs={12}>
+          <Grid item xs={12}>
             <FormControlLabel
               control={
                 <Switch
@@ -169,16 +169,16 @@ const AddressForm = ({ addressData = {}, onSubmit, onChange, handleOpen }) => {
               }
               label="Make this default"
             />
-          </Grid2>
+          </Grid>
 
-          <Grid2 item xs={12} style={{ textAlign: 'center' }}>
+          <Grid item xs={12} style={{ textAlign: 'center' }}>
             <Button type="submit" variant="contained" color="primary">
               Submit
             </Button>
-          </Grid2>
-        </Grid2>
+          </Grid>
+        </Grid>
       </form>
-    </Grid2>
+    </Grid>
   );
 };
 

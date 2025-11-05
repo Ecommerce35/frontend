@@ -22,8 +22,12 @@ export const setAuthUser = (access_token, refresh_token) => {
         const user = jwtDecode(access_token);
 
         // Update user state in your store
-        if (user) useAuthStore.getState().setUser(user);
-        useAuthStore.getState().setLoading(false);
+        const authStore = useAuthStore.getState();
+        if (user && JSON.stringify(authStore.user) !== JSON.stringify(user)) {
+            authStore.setUser(user);
+        }
+        if (authStore.loading) authStore.setLoading(false);
+
     } catch (error) {
         console.error('Error setting user auth state:', error);
         clearAuthUser();  // Clear tokens if something goes wrong
@@ -90,6 +94,15 @@ export const setUser = async () => {
     const refreshToken = Cookies.get("refresh_token");
 
     if (!accessToken || !refreshToken) return;
+
+    const authStore = useAuthStore.getState();
+    const currentUser = authStore.user;
+
+    // Decode token to compare with stored user
+    const decodedUser = jwtDecode(accessToken);
+
+    // Avoid re-updating the same user endlessly
+    if (currentUser && decodedUser?.user_id === currentUser?.user_id) return;
 
     if (isAccessTokenExpired(accessToken)) {
         const newToken = await refreshAccessToken();

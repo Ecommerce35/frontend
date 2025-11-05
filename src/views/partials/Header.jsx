@@ -12,14 +12,13 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { useNavigate } from 'react-router-dom';
 
 import { useCart } from "../../utils/CartContext";
-import ReverseGeocodeLocation from "./Location";
-import BasicModal from "./Modal";
 
 
 function Header() {
     const { cartCount } = useCart(); 
     const navigate = useNavigate();
-    const [isLoggedIn, user] = useAuthStore((state) => [state.isLoggedIn, state.user]);
+    // const [isLoggedIn, user] = useAuthStore((state) => [state.isLoggedIn, state.user]);
+    const { isLoggedIn, user } = useAuthStore();
     const { userData, loading, error } = useUserData();
     const [totalQuantity, setTotalQuantity] = useState(0);
 
@@ -56,14 +55,14 @@ function Header() {
         }
     };
 
-    useEffect(() => {
-        const fetchTotalQuantity = async () => {
-          const quantity = await getTotalCartQuantity();
-          setTotalQuantity(quantity);
-        };
+    // useEffect(() => {
+    //     const fetchTotalQuantity = async () => {
+    //       const quantity = await getTotalCartQuantity();
+    //       setTotalQuantity(quantity);
+    //     };
     
-        fetchTotalQuantity();
-    }, []);
+    //     fetchTotalQuantity();
+    // }, []);
 
     const handleLogout = async () => {
         navigate('/user/dashboard/sign-out'); // Redirect to logout or home page
@@ -88,12 +87,12 @@ function Header() {
                                             <select
                                                 style={{ border: 'none', backgroundColor: '#fff' }}
                                                 id="currency-select"
-                                               
-                                            >
-                                                <option selected={true} value="GHS">GHS</option>
+                                                value="GHS"
+                                                onChange={() => {}}
+                                                >
+                                                <option value="GHS">GHS</option>
                                                 <option value="USD">USD</option>
                                                 <option value="EUR">EUR</option>
-                                                {/* Add more options for other currencies as needed */}
                                             </select>
                                         </div>
                                     </li>
@@ -104,7 +103,7 @@ function Header() {
                                     </li>
                                     
                                     <li>
-                                        {isLoggedIn() ? (
+                                        {isLoggedIn ? (
                                             <>
                                                 <a className="cursor-pointer" onClick={handleLogout} >Logout</a>
                                             </>

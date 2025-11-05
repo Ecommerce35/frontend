@@ -5,7 +5,9 @@ import AddressForm from './AddressForm';
 import MapModal from './MapModal';
 import api from '../../api/api'; // Adjust import path as necessary
 import { useNavigate, useParams } from 'react-router-dom';
-import Grid2 from '@mui/material/Grid2';
+// import Grid from '@mui/material/Grid';
+import Grid from "@mui/material/Grid";
+
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -83,17 +85,17 @@ const EditAddress = () => {
       <Header />
       <div className="container">
         <MapModal open={open} handleClose={handleClose} />
-          <Grid2 item xs={12}>
+          <Grid item xs={12}>
             <Typography variant="h5" gutterBottom align="center">
               Edit Address
             </Typography>
             
-          </Grid2>
+          </Grid>
 
           <form onSubmit={handleSubmit}>
-            <Grid2 container spacing={3}>
+            <Grid container spacing={3}>
               {/* Full Name */}
-              <Grid2 item xs={12} md={6}>
+              <Grid item xs={12} md={6}>
                 <TextField
                   label="Full Name"
                   name="full_name"
@@ -102,10 +104,10 @@ const EditAddress = () => {
                   fullWidth
                   required
                 />
-              </Grid2>
+              </Grid>
 
               {/* Mobile */}
-              <Grid2 item xs={12} sm={6}>
+              <Grid item xs={12} sm={6}>
                 <TextField
                   label="Mobile"
                   name="mobile"
@@ -114,10 +116,10 @@ const EditAddress = () => {
                   fullWidth
                   required
                 />
-              </Grid2>
+              </Grid>
 
               {/* Email */}
-              <Grid2 item xs={12} sm={6}>
+              <Grid item xs={12} sm={6}>
                 <TextField
                   label="Email"
                   name="email"
@@ -126,10 +128,10 @@ const EditAddress = () => {
                   fullWidth
                   required
                 />
-              </Grid2>
+              </Grid>
 
               {/* Address */}
-              <Grid2 item xs={12} sm={6}>
+              <Grid item xs={12} sm={6}>
                 <TextField
                   label="Address"
                   name="address"
@@ -138,10 +140,10 @@ const EditAddress = () => {
                   fullWidth
                   required
                 />
-              </Grid2>
+              </Grid>
 
               {/* Country */}
-              <Grid2 item xs={12} sm={6}>
+              <Grid item xs={12} sm={6}>
                 <TextField
                   label="Country"
                   name="country"
@@ -150,10 +152,10 @@ const EditAddress = () => {
                   fullWidth
                   required
                 />
-              </Grid2>
+              </Grid>
 
               {/* Region */}
-              <Grid2 item xs={12} sm={6}>
+              <Grid item xs={12} sm={6}>
                 <TextField
                   label="Region"
                   name="region"
@@ -162,10 +164,10 @@ const EditAddress = () => {
                   fullWidth
                   required
                 />
-              </Grid2>
+              </Grid>
 
               {/* Town */}
-              <Grid2 item xs={12} sm={6}>
+              <Grid item xs={12} sm={6}>
                 <TextField
                   label="Town"
                   name="town"
@@ -174,10 +176,10 @@ const EditAddress = () => {
                   fullWidth
                   required
                 />
-              </Grid2>
+              </Grid>
 
               {/* GPS Address */}
-              <Grid2 item xs={12} sm={6}>
+              <Grid item xs={12} sm={6}>
                 <TextField
                   label="GPS"
                   name="gps_address"
@@ -186,10 +188,10 @@ const EditAddress = () => {
                   fullWidth
                   required
                 />
-              </Grid2>
+              </Grid>
 
               {/* Make Default */}
-              <Grid2 item xs={12}>
+              <Grid item xs={12}>
                 <FormControlLabel
                   control={
                     <Switch
@@ -201,15 +203,15 @@ const EditAddress = () => {
                   }
                   label="Make this default"
                 />
-              </Grid2>
+              </Grid>
 
               {/* Submit Button */}
-              <Grid2 item xs={12} style={{ textAlign: 'center' }}>
+              <Grid item xs={12} style={{ textAlign: 'center' }}>
                 <Button type="submit" variant="contained" color="primary">
                   Save Changes
                 </Button>
-              </Grid2>
-            </Grid2>
+              </Grid>
+            </Grid>
           </form>
       </div>
       <Footer />

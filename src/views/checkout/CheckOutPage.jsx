@@ -17,10 +17,12 @@ import InputLabel from '@mui/material/InputLabel';
 import api from '../../api/api';
 import { Link } from 'react-router-dom';
 
-import { Container, Grid2, Icon } from '@mui/material';
+import { Container, Icon } from '@mui/material';
 import PhoneIcon from '@mui/icons-material/Phone';
 import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 import ShieldIcon from '@mui/icons-material/Shield';
+import Grid from '@mui/material/Grid';
+
 
 
 const CheckoutPage = () => {
@@ -106,25 +108,25 @@ const CheckoutPage = () => {
     <main>
          <Box sx={{ backgroundColor: '#f8f9fa', py: 2 }}>
             <Container>
-                <Grid2 container alignItems="center" justifyContent="space-between">
+                <Grid container alignItems="center" justifyContent="space-between">
                 {/* Logo and Title */}
-                <Grid2 item xs={12} sm={4} md={3}>
+                <Grid item xs={12} sm={4} md={3}>
                     <Link to="/" underline="none">
                     <Typography variant="h5" component="h2" fontWeight="bold" color="primary">
                         AdepaMarket
                     </Typography>
                     </Link>
-                </Grid2>
+                </Grid>
 
                 {/* Center Title */}
-                <Grid2 item xs={12} sm={4} md={3}>
+                <Grid item xs={12} sm={4} md={3}>
                     <Typography variant="h6" align="center">
                     Check delivery option
                     </Typography>
-                </Grid2>
+                </Grid>
 
                 {/* Right Side Icons */}
-                <Grid2 sx={{ display: 'flex'}} item xs={12} sm={4} md={6}>
+                <Grid sx={{ display: 'flex'}} item xs={12} sm={4} md={6}>
                     <Box
                     sx={{
                         display: 'flex',
@@ -165,8 +167,8 @@ const CheckoutPage = () => {
                         </Box>
                     </Box>
                     </Box>
-                </Grid2>
-                </Grid2>
+                </Grid>
+                </Grid>
             </Container>
         </Box>
 

@@ -51,8 +51,8 @@ const MainCarousel = () => {
                     <Skeleton animation="wave" variant="rectangular" width="100%" height={350} />
                     </div>
                 ))
-                : sliders.map((s) => (
-                    <div key={s.id} className="intro-slide">
+                : sliders.map((s, i) => (
+                    <div key={i} className="intro-slide">
                     <figure className="slide-image">
                         <picture>
                         <source media="(max-width: 880px)" srcSet={`${s.image}`} />

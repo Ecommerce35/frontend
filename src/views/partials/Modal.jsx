@@ -25,7 +25,7 @@ const style = {
 
 const BasicModal = ({ open, handleClose }) => {
   const navigate = useNavigate();
-  const isAuthenticated = useAuthStore.getState().isLoggedIn();
+  const { isLoggedIn, user } = useAuthStore();
 
   const { calculateOrderSummary } = useCart();
   const [addressesList, setAddressesList] = useState([]);
@@ -128,7 +128,7 @@ const BasicModal = ({ open, handleClose }) => {
           ))}
 
           {/* Conditional button rendering */}
-        {isAuthenticated ? (
+        {isLoggedIn ? (
           addressesList.length >= 4 ? (
             <Typography sx={{ color: 'red', mt: 2 }}>
               You have reached the maximum number of allowed addresses.

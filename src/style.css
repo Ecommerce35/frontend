@@ -1,25 +1,23 @@
 ﻿html {
-  font-size: 60.5%;
+  font-size: 62.5%;               /* ← 1rem = 10px (62.5% is cleaner than 60.5%) */
   -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
-  font-size-adjust: 100%;
 }
 html,
 body {
   height: 100%;
 }
 body {
+  margin: 0;
   font-family: "Inter", "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
-    "Segoe UI Emoji", "Segoe UI Symbol";
-  font-weight: 400; /* Better for readability, 300 is a bit too thin */
-  font-size: 1rem; /* Use rem for scalability (1rem = 16px default) */
-  line-height: 1.6; /* Slightly tighter than 1.86, better balance */
-  color: #333; /* Darker gray for improved contrast & accessibility */
-  background-color: #fafafa; /* Softer off-white background */
+    Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-weight: 400;
+  font-size: 1.6rem;              /* ← 16px */
+  line-height: 1.6;
+  color: #333;
+  background: #fafafa;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  height: 100%;
 }
 
 ::-moz-selection {
@@ -4883,7 +4881,7 @@ p {
   margin-bottom: 1.3rem;
 }
 .new-price {
-  color: #ef837b;
+  color: #e03125;
   margin-right: 0.8rem;
 }
 .old-price {

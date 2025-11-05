@@ -25,7 +25,7 @@ import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import BasicModal from '../partials/Modal';
 
 import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid2';
+import Grid from '@mui/material/Grid';
 import Chip from '@mui/material/Chip';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
